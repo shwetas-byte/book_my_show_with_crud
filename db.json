@@ -1,0 +1,99 @@
+{
+  "users": [
+    {
+      "name": "Shweta Singh",
+      "email": "shwetas6913@gmail.com",
+      "password": "12345678@",
+      "confirmpassword": "12345678@",
+      "contact": "1234567890",
+      "id": "Fanqx-K-Yas"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Toxic: A Fairy Tale for Grown-ups",
+      "genre": "Action, Crime, Period, Thriller",
+      "poster": "images/toxic.jpg",
+      "badgeType": "likes",
+      "badgeValue": "1.6M+ Likes",
+      "rating": "8.5/10",
+      "votes": "45K+ Votes",
+      "duration": "2h 45m",
+      "certification": "UA",
+      "releaseDate": "19 Dec, 2025",
+      "formats": ["2D", "IMAX"],
+      "languages": ["Kannada", "Hindi", "Telugu"],
+      "description": "A dark and stylish tale set in the criminal underworld, following a mysterious gunslinger navigating betrayal, power, and revenge.",
+      "status": "In cinemas"
+    },
+    {
+      "id": 2,
+      "title": "Mahaprabhu Jagannath",
+      "genre": "Animation, Family, Mythological",
+      "poster": "images/jagannath.jpg",
+      "badgeType": "rating",
+      "badgeValue": "9.4/10  470+ Votes",
+      "rating": "9.4/10",
+      "votes": "470+ Votes",
+      "duration": "1h 50m",
+      "certification": "U",
+      "releaseDate": "15 Aug, 2025",
+      "formats": ["2D"],
+      "languages": ["Hindi", "Odia"],
+      "description": "An animated devotional journey retelling the divine tales of Lord Jagannath, blending myth, family values and vibrant storytelling for all ages.",
+      "status": "In cinemas"
+    },
+    {
+      "id": 3,
+      "title": "Jeevan Ya Bheema Con?",
+      "genre": "Comedy, Crime, Thriller",
+      "poster": "images/jeevan.jpg",
+      "badgeType": "rating",
+      "badgeValue": "7.8/10  130+ Votes",
+      "rating": "7.8/10",
+      "votes": "130+ Votes",
+      "duration": "2h 10m",
+      "certification": "UA",
+      "releaseDate": "22 Aug, 2025",
+      "formats": ["2D"],
+      "languages": ["Hindi"],
+      "description": "A darkly comic thriller about an insurance scam gone wrong, where a family's greed spirals into chaos and unexpected consequences.",
+      "status": "In cinemas"
+    },
+    {
+      "id": 4,
+      "title": "Awarapan 2",
+      "genre": "Action, Crime, Romantic",
+      "poster": "images/awarapan2.jpg",
+      "badgeType": "rating",
+      "badgeValue": "7.9/10  90.1K+ Votes",
+      "rating": "7.9/10",
+      "votes": "90.1K+ Votes",
+      "duration": "2h 20m",
+      "certification": "A",
+      "releaseDate": "5 Sep, 2025",
+      "formats": ["2D", "Dolby Cinema"],
+      "languages": ["Hindi"],
+      "description": "A gritty sequel following a man torn between loyalty and love, caught in the underworld's unforgiving cycle of violence and redemption.",
+      "status": "In cinemas"
+    },
+    {
+      "id": 5,
+      "title": "Spider-Man: Brand New Day",
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "images/spiderman.jpg",
+      "badgeType": "rating",
+      "badgeValue": "8.9/10  354K+ Votes",
+      "rating": "8.9/10",
+      "votes": "354K+ Votes",
+      "duration": "2h 30m",
+      "certification": "UA",
+      "releaseDate": "31 Jul, 2026",
+      "formats": ["2D", "3D", "IMAX"],
+      "languages": ["English", "Hindi", "Tamil", "Telugu"],
+      "description": "Peter Parker faces a new chapter of his life as Spider-Man, balancing personal struggles with an evolving threat that puts the city at risk.",
+      "status": "In cinemas"
+    }
+  ]
+}

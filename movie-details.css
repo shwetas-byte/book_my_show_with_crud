@@ -1,0 +1,221 @@
+/* ---------- Hero Section ---------- */
+.movie-hero {
+  position: relative;
+  min-height: 480px;
+  background-color: #1a1a2e;
+  background-size: cover;
+  background-position: center 20%;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* dark overlay so text stays readable over any poster image */
+.movie-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,10,20,0.95) 0%, rgba(10,10,20,0.85) 35%, rgba(10,10,20,0.55) 60%, rgba(10,10,20,0.25) 100%);
+  z-index: 1;
+}
+
+.loading-text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 15px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-poster {
+  flex-shrink: 0;
+  width: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.hero-poster img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-status {
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px;
+}
+
+.hero-info {
+  flex: 1;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.share-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+}
+
+.rating-pill .star {
+  color: #ff3366;
+  font-size: 16px;
+}
+
+.rating-pill .rating-value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.rating-pill .votes {
+  font-size: 14px;
+  color: #d0d0d0;
+}
+
+.rate-now-btn {
+  margin-left: 6px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.meta-line {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e8e8e8;
+  margin-bottom: 16px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.tag-pill {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 6px;
+}
+
+.book-btn {
+  background: #ff3366;
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background: #e62958;
+}
+
+/* ---------- About Section ---------- */
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 40px 60px;
+}
+
+.about-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+
+.about-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4a4a4a;
+  max-width: 800px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .movie-hero {
+    padding: 24px 20px;
+  }
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-poster {
+    width: 200px;
+  }
+  .hero-info {
+    padding-top: 0;
+  }
+  .hero-title {
+    font-size: 24px;
+  }
+  .rating-pill, .tag-row {
+    justify-content: center;
+  }
+  .share-btn {
+    top: 16px;
+    right: 16px;
+  }
+  .about-section {
+    padding: 28px 20px 40px;
+  }
+}
