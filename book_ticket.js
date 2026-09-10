@@ -60,6 +60,8 @@ async function DateStrip(){
 
     console.log(dayName, dateNum, monthName);
 
+    
+
 }
     
 }
