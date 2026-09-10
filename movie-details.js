@@ -65,6 +65,22 @@ async function loadMovieDetails(){
         <h2 class="about-title">About the movie</h2>
         <p class="about-text">${movie.description || ''}</p>
       `;
+    const user = JSON.parse(localStorage.getItem('Loggedinuser'));
+
+
+      // book ticket button to next page
+      const bookbtn = document.querySelector('.book-btn');
+      if(bookbtn){
+        bookbtn.addEventListener('click',()=>{
+          if(user){
+            window.location.href = `book_ticket.html?id=${movieId}`
+          }
+          else{
+            window.location.href='login.html'
+          }
+
+        })
+      }
     }
 
   }catch(err){

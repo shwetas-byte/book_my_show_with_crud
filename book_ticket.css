@@ -1,0 +1,317 @@
+/* ---------- Movie Info Bar ---------- */
+.movie-info-bar {
+  padding: 24px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.loading-text {
+  color: #7a7a7a;
+  font-size: 14px;
+}
+
+.info-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.info-pill {
+  background: #f5f6f8;
+  border: 1px solid #e0e0e0;
+  color: #4a4a4a;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* ---------- Booking Controls (dates + filters) ---------- */
+.booking-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.date-strip {
+  display: flex;
+  gap: 10px;
+}
+
+.date-box {
+  min-width: 64px;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  background: #fff;
+}
+
+.date-box .day-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7a7a7a;
+}
+
+.date-box .day-num {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 2px 0;
+}
+
+.date-box .month-name {
+  font-size: 11px;
+  color: #7a7a7a;
+}
+
+.date-box.active {
+  background: #ff3366;
+  border-color: #ff3366;
+}
+
+.date-box.active .day-name,
+.date-box.active .day-num,
+.date-box.active .month-name {
+  color: #fff;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-dropdown {
+  position: relative;
+}
+
+.filter-btn {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn:hover {
+  border-color: #ff3366;
+}
+
+.filter-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 8px;
+  display: none;
+  z-index: 10;
+}
+
+.filter-dropdown.open .filter-menu {
+  display: block;
+}
+
+.filter-menu label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #4a4a4a;
+  padding: 6px 4px;
+  cursor: pointer;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 140px;
+}
+
+/* ---------- Status Legend ---------- */
+.status-legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 10px 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot.available {
+  background: #2ecc71;
+}
+
+.dot.fast-filling {
+  background: #f5a623;
+}
+
+/* ---------- Cinema List ---------- */
+.cinema-list {
+  padding: 10px 40px 60px;
+}
+
+.cinema-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.cinema-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.cinema-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.cinema-cancellation {
+  font-size: 12px;
+  color: #7a7a7a;
+  margin-top: 2px;
+}
+
+.showtime-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------- Showtime button + hover tooltip ---------- */
+.showtime-wrap {
+  position: relative;
+}
+
+.showtime-btn {
+  border: 1.5px solid #2ecc71;
+  color: #1a1a2e;
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.showtime-btn.fastFilling {
+  border-color: #f5a623;
+  color: #f5a623;
+}
+
+.showtime-btn.available {
+  border-color: #2ecc71;
+  color: #1a1a2e;
+}
+
+/* tooltip: default hidden */
+.price-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  z-index: 20;
+}
+
+/* small arrow under tooltip */
+.price-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1a1a2e;
+}
+
+.price-tooltip .price-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 3px 0;
+}
+
+/* show tooltip on hover of the wrapping element */
+.showtime-wrap:hover .price-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .movie-info-bar, .booking-controls, .status-legend, .cinema-list {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .booking-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-row {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
