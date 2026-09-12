@@ -47,7 +47,14 @@
     <div class="filter-row">
       <div class="filter-dropdown" id="langFormatFilter">
         <button class="filter-btn">Language - Format <span class="arrow">&#9662;</span></button>
-        <div class="filter-menu"></div>
+        <div class="filter-menu">
+           <label><input type="checkbox" data-language="Hindi"> Hindi</label>
+            <label><input type="checkbox" data-language="English"> English</label>
+            <hr>
+            <label><input type="checkbox" data-format="2D"> 2D</label>
+            <label><input type="checkbox" data-format="IMAX"> IMAX</label>
+            <label><input type="checkbox" data-format="3D"> 3D</label>
+        </div>
       </div>
 
       <div class="filter-dropdown" id="priceFilter">
@@ -62,7 +69,12 @@
 
       <div class="filter-dropdown" id="sortFilter">
         <button class="filter-btn">Sort By <span class="arrow">&#9662;</span></button>
-        <div class="filter-menu"></div>
+        <div class="filter-menu">
+          <label data-sort="rating-high">Rating: High to Low</label>
+          <label data-sort="price-low">Price: Low to High</label>
+          <label data-sort="price-high">Price: High to Low</label>
+
+        </div>
       </div>
 
       <div class="search-box">

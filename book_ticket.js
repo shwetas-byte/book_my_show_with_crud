@@ -4,6 +4,9 @@ const movieId = urlParams.get('id');
 let allCinemas = []
 const cinemaList = document.querySelector('#cinemaList')
 let currentDateIndex = 0
+let currentSortType =''
+let selectedLanguages =[]
+let selectedFormats =[]
 
 async function MovieInfo(){
     const movieInfo = document.querySelector('#movieInfoBar');
@@ -129,6 +132,27 @@ function renderCinemas(dayIndex){
         return cinema.name.toLowerCase().includes(searchText)
     })
 
+    if(currentSortType==='rating-high'){
+        filteredList.sort((a,b)=>b.rating - a.rating)
+
+    }
+
+    if(currentSortType === "price-low"){
+    filteredList.sort((a, b) => {
+        const aMinPrice = Math.min(...a.seatPricing.map(seat => seat.price))
+        const bMinPrice = Math.min(...b.seatPricing.map(seat => seat.price))
+        return aMinPrice - bMinPrice
+    })
+}
+
+if(currentSortType === "price-high"){
+    filteredList.sort((a, b) => {
+        const aMinPrice = Math.min(...a.seatPricing.map(seat => seat.price))
+        const bMinPrice = Math.min(...b.seatPricing.map(seat => seat.price))
+        return bMinPrice - aMinPrice
+    })
+}
+
     cinemaList.innerHTML=''
 
     filteredList.forEach((cinema)=>{
@@ -194,3 +218,54 @@ const searchBox=document.querySelector('#cinemaSearch')
 searchBox.addEventListener('input',()=>{
     renderCinemas(currentDateIndex)
 })
+
+// sort drop down
+const sortDropdown = document.querySelector('#sortFilter')
+const sortButton =sortDropdown.querySelector('.filter-btn')
+
+sortButton.addEventListener('click',()=>{
+    sortDropdown.classList.toggle('open')
+})
+
+const sortLabels = document.querySelectorAll('#sortFilter label')
+sortLabels.forEach((label)=>{
+    label.addEventListener('click',()=>{
+        currentSortType=label.getAttribute('data-sort')
+        renderCinemas(currentDateIndex)
+    })
+})
+
+// language dropdown
+const langDropdown =document.querySelector('#langFormatFilter')
+const langButton = langDropdown.querySelector('.filter-btn')
+langButton.addEventListener('click',()=>{
+    langDropdown.classList.toggle('open')
+})
+const allCheckboxes =document.querySelectorAll('#langFormatFilter input[type="checkbox"]')
+ allCheckboxes.forEach((checkbox)=>{
+    checkbox.addEventListener('change', () => {
+
+    const langValue = checkbox.getAttribute('data-language')
+    const formatValue = checkbox.getAttribute('data-format')
+
+    if(langValue){
+        // ye language-wala checkbox hai
+        if(checkbox.checked){
+            selectedLanguages.push(langValue)
+        } else {
+            selectedLanguages = selectedLanguages.filter(lang => lang !== langValue)
+        }
+    }
+
+    if(formatValue){
+        // ye format-wala checkbox hai
+        if(checkbox.checked){
+            selectedFormats.push(formatValue)
+        } else {
+            selectedFormats = selectedFormats.filter(fmt => fmt !== formatValue)
+        }
+    }
+
+    renderCinemas(currentDateIndex)
+})
+ })
