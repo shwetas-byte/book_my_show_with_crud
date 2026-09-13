@@ -268,4 +268,7 @@ const allCheckboxes =document.querySelectorAll('#langFormatFilter input[type="ch
 
     renderCinemas(currentDateIndex)
 })
+
+
+
  })
