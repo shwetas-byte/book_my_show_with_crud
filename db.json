@@ -299,5 +299,37 @@
       ]
     }
   ],
+  "events": [
+    {
+      "id": 1,
+      "title": "COMEDY SHOWS",
+      "eventCount": "10+ Events",
+      "image": "images/comedy.jpg"
+    },
+    {
+      "id": 2,
+      "title": "AMUSEMENT PARK",
+      "eventCount": "3 Events",
+      "image": "images/amuse.jpg"
+    },
+    {
+      "id": 3,
+      "title": "KIDS",
+      "eventCount": "4 Events",
+      "image": "images/kids.jpg"
+    },
+    {
+      "id": 4,
+      "title": "MUSIC SHOWS",
+      "eventCount": "10+ Events",
+      "image": "images/music.jpg"
+    },
+    {
+      "id": 5,
+      "title": "ART & CRAFTS",
+      "eventCount": "10+ Events",
+      "image": "images/art.jpg"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

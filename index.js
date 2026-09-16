@@ -221,4 +221,31 @@ async function loadMovies(){
     console.log("Movies does not load",err)
   }
 }
+
+//comdeyy cards
+
+async function loadEvents(){
+  const eventsGrid =document.querySelector('#eventsGrid')
+  try{
+    const res = await fetch(`${api}/events`)
+    const events = await res.json()
+
+    events.forEach((event)=>{
+      const eventCardHTML = `
+                <div class="event-card" data-id="${event.id}">
+                    <img src="${event.image}" alt="${event.title}">
+                    <div class="event-overlay"></div>
+                    <div class="event-text">
+                        <h3>${event.title}</h3>
+                        <p>${event.eventCount}</p>
+                    </div>
+                </div>
+            `
+            eventsGrid.insertAdjacentHTML('beforeend', eventCardHTML)
+    })
+  }catch(err){
+    console.log(err)
+  }
+}
 loadMovies()
+loadEvents()

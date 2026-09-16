@@ -7,6 +7,8 @@ let currentDateIndex = 0
 let currentSortType =''
 let selectedLanguages =[]
 let selectedFormats =[]
+let currentPriceRange =''
+let currentTimePreference =''
 
 async function MovieInfo(){
     const movieInfo = document.querySelector('#movieInfoBar');
@@ -128,7 +130,7 @@ function renderCinemas(dayIndex){
     const searchBox = document.querySelector('#cinemaSearch')
     const searchText =searchBox.value.toLowerCase()
 
-    const filteredList = allCinemas.filter((cinema)=>{
+    let filteredList = allCinemas.filter((cinema)=>{
         return cinema.name.toLowerCase().includes(searchText)
     })
 
@@ -145,6 +147,43 @@ function renderCinemas(dayIndex){
     })
 }
 
+
+//language
+if(selectedLanguages.length > 0){
+    filteredList = filteredList.filter((cinema) => {
+        return selectedLanguages.includes(cinema.language)
+    })
+}
+
+if(selectedFormats.length > 0){
+    filteredList = filteredList.filter((cinema) => {
+        return selectedFormats.includes(cinema.format)
+    })
+}
+
+// price
+if(currentPriceRange==='under200'){
+    filteredList=filteredList.filter((cinema)=>{
+        const minPrice=Math.min(...cinema.seatPricing.map(seat=> seat.price))
+        return minPrice<200
+    })
+}
+
+if(currentPriceRange==='200to400'){
+    filteredList=filteredList.filter((cinema)=>{
+        const minPrice=Math.min(...cinema.seatPricing.map(seat=>seat.price))
+        return minPrice>=200 && minPrice<= 400
+    })
+}
+
+if(currentPriceRange==='above400'){
+    filteredList=filteredList.filter((cinema)=>{
+        const minPrice=Math.min(...cinema.seatPricing.map(seat=>seat.price))
+        return minPrice>400
+    })
+}
+
+
 if(currentSortType === "price-high"){
     filteredList.sort((a, b) => {
         const aMinPrice = Math.min(...a.seatPricing.map(seat => seat.price))
@@ -160,6 +199,27 @@ if(currentSortType === "price-high"){
            const cinema_status =cinema.cancellation
 
            const todaysShows = cinema.showtimesByDay[dayIndex]
+           let displayShows = todaysShows
+
+if(currentTimePreference){
+    displayShows = todaysShows.filter((show) => {
+        const hour = parseInt(show.time)
+        const isPM = show.time.includes('PM')
+
+        if(currentTimePreference === "morning"){
+            return !isPM && hour >= 6 && hour <= 11
+        }
+        if(currentTimePreference === "afternoon"){
+            return isPM && (hour === 12 || (hour >= 1 && hour <= 3))
+        }
+        if(currentTimePreference === "evening"){
+            return isPM && hour >= 4 && hour <= 8
+        }
+        if(currentTimePreference === "night"){
+            return isPM && hour >= 9 && hour <= 11
+        }
+    })
+}
            const cinemaPricing = cinema.seatPricing
 
            let showtimeButtonsHTML =''
@@ -174,7 +234,7 @@ if(currentSortType === "price-high"){
             `
            })
 
-           todaysShows.forEach((show)=>{
+           displayShows.forEach((show)=>{
                 showtimeButtonsHTML+=`
                     <div class='showtime-wrap'>
                         <button class='showtime-btn ${show.status}'> ${show.time} </button>
@@ -209,6 +269,7 @@ if(currentSortType === "price-high"){
 
         })
 
+
 }
 
 MovieInfo()
@@ -238,6 +299,8 @@ sortLabels.forEach((label)=>{
 // language dropdown
 const langDropdown =document.querySelector('#langFormatFilter')
 const langButton = langDropdown.querySelector('.filter-btn')
+
+
 langButton.addEventListener('click',()=>{
     langDropdown.classList.toggle('open')
 })
@@ -272,3 +335,33 @@ const allCheckboxes =document.querySelectorAll('#langFormatFilter input[type="ch
 
 
  })
+
+//  price
+const priceDropdown =document.querySelector('#priceFilter')
+const priceButton = priceDropdown.querySelector('.filter-btn')
+priceButton.addEventListener('click',()=>{
+    priceDropdown.classList.toggle('open')
+})
+const priceLabels =document.querySelectorAll('#priceFilter label')
+priceLabels.forEach((label)=>{
+    label.addEventListener('click',()=>{
+        currentPriceRange=label.getAttribute('data-price')
+        renderCinemas(currentDateIndex)
+    })
+})
+
+
+// time
+const timeDropdown = document.querySelector('#timeFilter')
+const timeButton = timeDropdown.querySelector('.filter-btn')
+
+timeButton.addEventListener('click', () => {
+    timeDropdown.classList.toggle('open')
+})
+const timeLabels =document.querySelectorAll('#timeFilter label')
+timeLabels.forEach((label) => {
+    label.addEventListener('click', () => {
+        currentTimePreference = label.getAttribute('data-time')
+        renderCinemas(currentDateIndex)
+    })
+})
