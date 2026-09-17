@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Seats - BookMyShow</title>
+<link rel="stylesheet" href="seat-layout.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="seat-header">
+    <button class="back-btn" onclick="history.back()">&#8592;</button>
+    <div class="seat-header-info">
+      <h1 id="movieTitleHeader">Loading...</h1>
+      <p id="showInfoHeader"></p>
+    </div>
+    <div class="ticket-badge" id="ticketBadge" style="display:none;">
+      <span class="edit-icon" id="editTicketsBtn">&#9998;</span>
+      <span id="ticketCount">0</span> Tickets
+    </div>
+  </header>
+
+  <!-- Time Pills -->
+  <div class="time-pills" id="timePills"></div>
+
+  <!-- Seat Map -->
+  <main class="seat-map-container" id="seatMapContainer">
+    <p class="loading-text">Loading seat layout...</p>
+  </main>
+
+  <!-- Legend -->
+  <div class="seat-legend">
+    <span class="legend-item"><span class="seat-swatch available"></span> Available</span>
+    <span class="legend-item"><span class="seat-swatch sold"></span> Sold</span>
+    <span class="legend-item"><span class="seat-swatch selected"></span> Selected</span>
+  </div>
+
+  <!-- Floating Footer -->
+  <div class="proceed-footer" id="proceedFooter" style="display:none;">
+    <div class="footer-info">
+      <span id="footerSeatCount">0</span> Seats &nbsp;|&nbsp; <span id="footerTotalPrice">₹0</span>
+    </div>
+    <button class="proceed-btn" id="proceedBtn">Generate Ticket</button>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastMessage"></div>
+
+  <!-- "How many seats?" Modal -->
+  <div class="modal-overlay" id="seatCountModal">
+    <div class="modal-box">
+      <h2>How many seats?</h2>
+
+      <div class="seat-count-row" id="seatCountRow"></div>
+
+      <div class="category-price-list" id="categoryPriceList"></div>
+
+      <button class="select-seats-btn" id="selectSeatsBtn" disabled>Select Seats</button>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  <script src="seat-layout.js"></script>
+</body>
+</html>

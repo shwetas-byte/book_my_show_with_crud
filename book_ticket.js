@@ -234,17 +234,17 @@ if(currentTimePreference){
             `
            })
 
-           displayShows.forEach((show)=>{
-                showtimeButtonsHTML+=`
-                    <div class='showtime-wrap'>
-                        <button class='showtime-btn ${show.status}'> ${show.time} </button>
+           todaysShows.forEach((show)=>{
+        showtimeButtonsHTML+=`
+            <div class='showtime-wrap'>
+                <button class='showtime-btn ${show.status}' data-cinema-id="${cinema.id}" data-time="${show.time}"> ${show.time} </button>
 
-                        <div class="price-tooltip">
-                            ${pricingHTML}
-                        </div>
-                    </div>
-                `
-           })
+                <div class="price-tooltip">
+                    ${pricingHTML}
+                </div>
+            </div>
+        `
+})
 
            
 
@@ -364,4 +364,15 @@ timeLabels.forEach((label) => {
         currentTimePreference = label.getAttribute('data-time')
         renderCinemas(currentDateIndex)
     })
+})
+
+
+
+cinemaList.addEventListener('click', (e) => {
+    if(e.target.classList.contains('showtime-btn')){
+        const cinemaId = e.target.getAttribute('data-cinema-id')
+        const time = e.target.getAttribute('data-time')
+
+        window.location.href = `seat-layout.html?id=${movieId}&cinemaId=${cinemaId}&time=${encodeURIComponent(time)}&dayIndex=${currentDateIndex}`
+    }
 })
