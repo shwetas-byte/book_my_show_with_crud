@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Ticket - BookMyShow</title>
+<link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+
+  <div class="ticket-page">
+    <div class="ticket-card">
+
+      <!-- Top Info -->
+      <div class="ticket-top">
+        <img id="ticketPoster" class="ticket-poster" src="" alt="Movie Poster">
+        <div class="ticket-top-info">
+          <h2 id="ticketMovieTitle">Movie Title</h2>
+          <p id="ticketLangFormat">Language, Format</p>
+          <p id="ticketDateTime">Date | Time</p>
+          <p id="ticketCinemaName">Cinema Name</p>
+        </div>
+      </div>
+
+      <div class="ticket-divider"></div>
+
+      <!-- Seat Info -->
+      <div class="ticket-middle">
+        <p class="ticket-count" id="ticketCountText">0 Ticket(s)</p>
+        <p class="seat-list" id="ticketSeatsList">Seats</p>
+
+        <div class="qr-wrap">
+          <img id="qrCodeImg" src="" alt="QR Code">
+        </div>
+
+        <p class="booking-id" id="bookingIdText">BOOKING ID: -</p>
+      </div>
+
+      <div class="cancellation-note">
+        Cancellation unavailable: cut-off time of 20 minutes before showtime has passed
+      </div>
+
+      <div class="ticket-divider"></div>
+
+      <!-- Price Breakdown -->
+      <div class="price-breakdown">
+        <div class="price-row total-row">
+          <span>Total Amount</span>
+          <span id="totalAmountText">₹0</span>
+        </div>
+        <div class="price-row">
+          <span id="ticketPriceLabel">Ticket(s) price</span>
+          <span id="ticketPriceText">₹0</span>
+        </div>
+        <div class="price-row">
+          <span>Convenience fee</span>
+          <span id="convenienceFeeText">₹0</span>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-home-link">Back to Home</a>
+
+    </div>
+  </div>
+
+  <script src="ticket.js"></script>
+</body>
+</html>

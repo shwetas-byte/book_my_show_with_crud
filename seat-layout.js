@@ -9,6 +9,7 @@ const dayIndex = Number(urlParams.get('dayIndex'))
 let maxSeats = 0
 let selectedSeats = []
 let cinemaData = null
+let moviePosterUrl =''
 
 // ---------- Date formatting ----------
 const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
@@ -64,8 +65,9 @@ async function loadSeatLayout(){
         const cinemaRes = await fetch(`${api}/cinemas/${cinemaId}`)
         cinemaData = await cinemaRes.json()
 
-        document.querySelector('#movieTitleHeader').textContent = movie.title
-        updateHeaderInfo()
+       const movieTitle= document.querySelector('#movieTitleHeader').textContent = movie.title
+        moviePosterUrl = movie.poster
+       updateHeaderInfo()
 
         buildSeatCountModal()
         renderTimePills()
@@ -263,10 +265,18 @@ function updateProceedFooter(){
 document.addEventListener('DOMContentLoaded', () => {
     const proceedBtn = document.querySelector('#proceedBtn')
     proceedBtn.addEventListener('click', () => {
+         const movieTitle = document.querySelector('#movieTitleHeader').textContent   
         const total = selectedSeats.reduce((sum, seat) => sum + seat.price, 0)
-        const seatList = selectedSeats.map(s => s.seatId).join(', ')
-        alert(`Booking Confirmed!\nSeats: ${seatList}\nTotal: ₹${total}`)
+
+        localStorage.setItem('ticketMovie',movieTitle)
+        localStorage.setItem('ticketCinema',cinemaData.name)
+        localStorage.setItem('ticketDate', getFormattedDate(dayIndex))
+        localStorage.setItem('ticketTime',showTime)
+        localStorage.setItem('ticketSeats', JSON.stringify(selectedSeats))
+        localStorage.setItem('ticketTotal', total)
+        localStorage.setItem('ticketPoster', moviePosterUrl)
+
+        window.location.href = 'ticket.html'
     })
 })
-
 loadSeatLayout()
